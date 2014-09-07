@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  list_order: 1
+  program_id_id: 
+  composition_id_id: 
+  interval_id_id: 
+
+two:
+  list_order: 1
+  program_id_id: 
+  composition_id_id: 
+  interval_id_id: 

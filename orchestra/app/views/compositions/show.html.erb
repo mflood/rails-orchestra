@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @composition.title %>
+</p>
+
+<p>
+  <strong>Composer:</strong>
+  <%= @composition.composer %>
+</p>
+
+<p>
+  <strong>Arranger:</strong>
+  <%= @composition.arranger %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @composition.notes %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <% @composition.tags.each do |tag| %>
+    <%= link_to tag.name, tag %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_composition_path(@composition) %> |
+<%= link_to 'Back', compositions_path %>

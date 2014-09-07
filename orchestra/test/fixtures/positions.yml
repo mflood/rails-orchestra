@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  musician_id_id: 
+  ensemble_id_id: 
+  role_id_id: 
+
+two:
+  musician_id_id: 
+  ensemble_id_id: 
+  role_id_id: 

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2014-09-06
+  start_time: 2014-09-06 21:42:39
+  ensemble_id_id: 
+  location_id_id: 
+  performance_type_id_id: 
+  program_id_id: 
+
+two:
+  date: 2014-09-06
+  start_time: 2014-09-06 21:42:39
+  ensemble_id_id: 
+  location_id_id: 
+  performance_type_id_id: 
+  program_id_id: 

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @performance_type.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @performance_type.notes %>
+</p>
+
+<%= link_to 'Edit', edit_performance_type_path(@performance_type) %> |
+<%= link_to 'Back', performance_types_path %>
