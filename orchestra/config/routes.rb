@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  resources :compositions
+
+  resources :programs
+
+  resources :musicians
+
+  resources :ensembles
+
+  resources :intervals
+
+  resources :performance_types
+
+  resources :locations
+
+  resources :roles
+
+  resources :tags
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

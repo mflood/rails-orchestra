@@ -11,6 +11,155 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140907034536) do
+
+  create_table "composition_parts", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "composition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "composition_parts", ["composition_id"], name: "index_composition_parts_on_composition_id", using: :btree
+
+  create_table "composition_parts_roles", force: true do |t|
+    t.integer "composition_part_id"
+    t.integer "role_id"
+  end
+
+  add_index "composition_parts_roles", ["composition_part_id"], name: "index_composition_parts_roles_on_composition_part_id", using: :btree
+  add_index "composition_parts_roles", ["role_id"], name: "index_composition_parts_roles_on_role_id", using: :btree
+
+  create_table "composition_resources", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "composition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "compositions", force: true do |t|
+    t.string   "title"
+    t.string   "composer"
+    t.string   "arranger"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "musician_id"
+  end
+
+  create_table "compositions_tags", force: true do |t|
+    t.integer "composition_id"
+    t.integer "tag_id"
+  end
+
+  add_index "compositions_tags", ["composition_id"], name: "index_compositions_tags_on_composition_id", using: :btree
+  add_index "compositions_tags", ["tag_id"], name: "index_compositions_tags_on_tag_id", using: :btree
+
+  create_table "ensembles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "intervals", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "musicians", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.text     "notes"
+    t.boolean  "is_active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "musicians_performances", force: true do |t|
+    t.integer "musician_id"
+    t.integer "performance_id"
+  end
+
+  add_index "musicians_performances", ["musician_id"], name: "index_musicians_performances_on_musician_id", using: :btree
+  add_index "musicians_performances", ["performance_id"], name: "index_musicians_performances_on_performance_id", using: :btree
+
+  create_table "performance_types", force: true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "performances", force: true do |t|
+    t.date     "date"
+    t.time     "start_time"
+    t.integer  "ensemble_id"
+    t.integer  "location_id"
+    t.integer  "performance_type_id"
+    t.integer  "program_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "performances", ["ensemble_id"], name: "index_performances_on_ensemble_id", using: :btree
+  add_index "performances", ["location_id"], name: "index_performances_on_location_id", using: :btree
+  add_index "performances", ["performance_type_id"], name: "index_performances_on_performance_type_id", using: :btree
+  add_index "performances", ["program_id"], name: "index_performances_on_program_id", using: :btree
+
+  create_table "positions", force: true do |t|
+    t.integer  "musician_id"
+    t.integer  "ensemble_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "positions", ["ensemble_id"], name: "index_positions_on_ensemble_id", using: :btree
+  add_index "positions", ["musician_id"], name: "index_positions_on_musician_id", using: :btree
+  add_index "positions", ["role_id"], name: "index_positions_on_role_id", using: :btree
+
+  create_table "program_compositions", force: true do |t|
+    t.integer  "list_order"
+    t.integer  "program_id"
+    t.integer  "composition_id"
+    t.integer  "interval_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "program_compositions", ["composition_id"], name: "index_program_compositions_on_composition_id", using: :btree
+  add_index "program_compositions", ["interval_id"], name: "index_program_compositions_on_interval_id", using: :btree
+  add_index "program_compositions", ["program_id"], name: "index_program_compositions_on_program_id", using: :btree
+
+  create_table "programs", force: true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
