@@ -42,4 +42,3 @@ gem 'mysql2'
 
 # for heroku
 gem 'rails_12factor', group: :production
-gem 'pg', group: :production
