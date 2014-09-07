@@ -9,7 +9,7 @@ default: &default
   encoding: utf8
   username: railsuser
   password: railspassword
-  host: clouddb
+  host: 54.164.221.124
   port: 3306
   pool: 5
   timeout: 5000
